@@ -5,7 +5,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.lugq.glidedemo.App;
 
 @SuppressWarnings("unused")
 public class GlideUtils {
@@ -23,7 +22,7 @@ public class GlideUtils {
      * https://blog.csdn.net/qq_32519693/article/details/78067726
      */
     public static void loadNoCache(String url, ImageView imageView) {
-        Glide.with(App.app).load(url)
+        Glide.with(ContextHolder.getContext()).load(url)
                 //.error(R.mipmap.icon_course_default)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(imageView);
