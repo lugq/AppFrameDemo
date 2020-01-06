@@ -48,6 +48,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
         mPresenter = createPresenter();
 
+        getLifecycle().addObserver(mPresenter);
+
         // 子类不再需要设置布局ID
         setContentView(provideContentViewId());
         ButterKnife.bind(this);

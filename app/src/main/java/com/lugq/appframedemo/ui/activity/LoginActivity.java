@@ -1,5 +1,6 @@
 package com.lugq.appframedemo.ui.activity;
 
+import android.content.Intent;
 import android.widget.EditText;
 
 import com.lugq.appframedemo.R;
@@ -35,6 +36,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void showUserInfo(UserEntity user) {
-
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
+
+
 }

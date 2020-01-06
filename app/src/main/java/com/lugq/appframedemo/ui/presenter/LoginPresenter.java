@@ -15,6 +15,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String TAG = LoginPresenter.class.getSimpleName();
+    private Disposable mDisposable;
 
     public LoginPresenter(LoginView view) {
         super(view);
@@ -32,12 +33,14 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                         //mProgressBar.setVisibility(View.VISIBLE);
                         // 可以用于取消订阅
                         //d.dispose();
+                        mDisposable = d;
                     }
 
                     // 需要界面上显示的
                     @Override
                     public void onNext(UserEntity user) {
                         //Log.i(TAG, "onNext:" + user.login);
+                        mView.showUserInfo(user);
                     }
 
                     // 请求发生错误
@@ -53,4 +56,11 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                 });
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "LoginActivity destroy");
+        if (mDisposable != null)
+            mDisposable.dispose();
+    }
 }
