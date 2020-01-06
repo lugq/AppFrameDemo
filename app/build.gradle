@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+static def packageTime() {
+    return new Date().format("yyyyMMdd-HHmmss", TimeZone.getDefault())
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -15,10 +19,40 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release {
+            storeFile file('keystore.jks')
+            storePassword '123456'
+            keyAlias 'appframe'
+            keyPassword '123456'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            // 定义路径
+            //variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + "/build/outputs/apk/release")
+            // 定制文件名
+            //outputFileName = "senseU_center_${variant.buildType.name}_${defaultConfig.versionName}_${packageTime()}.apk"
+
+            // 注意：这里不能换行
+            //outputFileName = "lugq-" + "${variant.buildType.name}-" + "${defaultConfig.versionName}-" + "${packageTime()}" + ".apk"
+            //def fileName =  "lugq-" + "${variant.buildType.name}-" + "${defaultConfig.versionName}-" + "${packageTime()}" + ".apk"
+
+            // 这样写法，方便注释
+            def prefix = "lugq-"
+            def buildType = "${variant.buildType.name}-"
+            def versionName = "${defaultConfig.versionName}-"
+            def time = "${packageTime()}"
+
+            outputFileName = prefix + buildType + versionName + time + ".apk"
         }
     }
 }
