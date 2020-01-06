@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.lugq.appframedemo.MainActivity;
+import com.lugq.appframedemo.ui.activity.MainActivity;
 import com.lugq.appframedemo.listener.PermissionListener;
 
 import org.greenrobot.eventbus.EventBus;
