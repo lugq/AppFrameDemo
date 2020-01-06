@@ -21,12 +21,13 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     public void login(String name, String pwd) {
-        Observable<UserEntity> bookObservable = ApiService.createApiService().getInfo();
-        bookObservable.compose(CommonSchedulers.io2main())
+        Observable<UserEntity> observable = ApiService.createApiService().getInfo();
+        observable.compose(CommonSchedulers.io2main())
                 .subscribe(new BaseObserver<UserEntity>() {
                     @Override
                     public void onNext(UserEntity s) {
-                        Log.i(TAG, "输出：" + s);
+                        Log.i(TAG, "请求成功");
+                        // qing
                         mView.showUserInfo(s);
                     }
                 });
