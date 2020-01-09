@@ -1,6 +1,7 @@
 package com.lugq.appframedemo.ui.activity;
 
 import android.content.Intent;
+import android.util.Log;
 import android.widget.EditText;
 
 import com.lugq.appframedemo.R;
@@ -13,6 +14,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginView {
+    private static final String TAG = LoginActivity.class.getSimpleName();
 
     @BindView(R.id.et_name)
     EditText et_name;
@@ -32,13 +34,18 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         String name = et_name.getText().toString();
         String pwd = et_name.getText().toString();
         mPresenter.login(name, pwd);
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void showUserInfo(UserEntity user) {
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+        //finish();
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "onDestroy()");
+    }
 }

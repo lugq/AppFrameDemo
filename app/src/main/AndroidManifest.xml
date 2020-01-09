@@ -32,7 +32,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.MainActivity" />
+        <!--
+        设置MainActivity启动模式为SingleTask保证每次
+        -->
+
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

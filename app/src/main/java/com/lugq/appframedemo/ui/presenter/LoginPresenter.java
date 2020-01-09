@@ -10,11 +10,9 @@ import com.lugq.appframedemo.ui.base.BasePresenter;
 import com.lugq.appframedemo.ui.view.LoginView;
 
 import io.reactivex.Observable;
-import io.reactivex.disposables.Disposable;
 
 public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String TAG = LoginPresenter.class.getSimpleName();
-    private Disposable mDisposable;
 
     public LoginPresenter(LoginView view) {
         super(view);
@@ -27,7 +25,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                     @Override
                     public void onNext(UserEntity s) {
                         Log.i(TAG, "请求成功");
-                        // qing
                         mView.showUserInfo(s);
                     }
                 });
@@ -37,7 +34,5 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     public void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "LoginActivity destroy");
-        if (mDisposable != null)
-            mDisposable.dispose();
     }
 }
