@@ -113,4 +113,8 @@ dependencies {
     // 工具类库
     implementation 'com.blankj:utilcodex:1.26.0'
 
+    // 权限申请框架
+    implementation "org.permissionsdispatcher:permissionsdispatcher:4.6.0"
+    annotationProcessor "org.permissionsdispatcher:permissionsdispatcher-processor:4.6.0"
+
 }
