@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <corners android:radius="18dp" />
-    <solid android:color="#FFF" />
+    <!--
+    角度
+    -->
+    <corners android:radius="20dp" />
+    <!--
+    填充的颜色
+    -->
+    <solid android:color="#162CD1" />
+    <!--
+    大小
+    -->
     <size
         android:width="270dp"
         android:height="60dp" />
+    <!--
+    边框及颜色
+    -->
     <stroke
-        android:width="2dp"
+        android:width="5dp"
         android:color="#87220D" />
 </shape>
