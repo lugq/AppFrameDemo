@@ -22,7 +22,7 @@ public class GlideUtils {
      * https://blog.csdn.net/qq_32519693/article/details/78067726
      */
     public static void loadNoCache(String url, ImageView imageView) {
-        Glide.with(ContextHolder.getContext()).load(url)
+        Glide.with(ContextHolder.Companion.getContext()).load(url)
                 //.error(R.mipmap.icon_course_default)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(imageView);

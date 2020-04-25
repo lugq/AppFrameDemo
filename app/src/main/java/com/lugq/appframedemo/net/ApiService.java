@@ -33,7 +33,7 @@ public class ApiService {
         return new OkHttpClient.Builder()
                 //.addInterceptor(new CommonParamsInterceptor())
                 .addInterceptor(getHttpLoggingInterceptor())
-                //.addInterceptor(new FakeApiInterceptor())
+                .addInterceptor(new FakeApiInterceptor())
                 .build();
     }
 

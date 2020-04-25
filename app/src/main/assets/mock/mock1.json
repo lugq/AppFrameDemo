@@ -1,0 +1,19 @@
+{
+  "注释":"获取事件列表接口",
+  "success":true,
+  "data": [{
+    "alarmId": 5361,
+    "alarmLevel": 2,
+    "alarmType": 1,
+    "bkType": 1,
+    "content": "一类人员员 测试3(185xx)在 2019-12-31 03:15:47,临近场所 青海SGAT",
+    "id": 0,
+    "isDelete": 0,
+    "occurTime": "2019-12-31 03:15:47.0",
+    "title": "一类人员员 测试3临近场所橙色事件",
+    "zdrId": 125,
+    "zdrIdcard": "125125125125125125",
+    "zoneAddress": "青海省xxSGAT",
+    "zoneId": 0
+  }]
+}

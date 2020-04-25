@@ -19,14 +19,15 @@ class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
         return R.layout.activity_login
     }
 
-    fun onClickLogin() {
-        val name = et_name!!.text.toString()
-        val pwd = et_name!!.text.toString()
-        mPresenter!!.login(name, pwd)
-        startActivity(Intent(this, MainActivity::class.java))
-    }
-
-    override fun showUserInfo(user: UserEntity) { //finish();
+    override fun initListener() {
+        super.initListener()
+        // 登录
+        btn_login.setOnClickListener {
+            val name = et_name!!.text.toString()
+            val pwd = et_name!!.text.toString()
+            mPresenter!!.login(name, pwd)
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     override fun onDestroy() {
@@ -36,5 +37,8 @@ class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
 
     companion object {
         private val TAG = LoginActivity::class.java.simpleName
+    }
+
+    override fun showUserInfo(user: UserEntity?) {
     }
 }
