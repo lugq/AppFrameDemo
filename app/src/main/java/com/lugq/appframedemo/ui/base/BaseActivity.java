@@ -27,8 +27,6 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-
 /**
  * @author lugq
  * @description: activity的基类
@@ -52,7 +50,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
         // 子类不再需要设置布局ID
         setContentView(provideContentViewId());
-        ButterKnife.bind(this);
         mCurrentActivity = this;
         initView();
         initData();
