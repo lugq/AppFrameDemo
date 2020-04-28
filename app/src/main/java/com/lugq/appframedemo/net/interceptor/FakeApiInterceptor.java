@@ -1,4 +1,4 @@
-package com.lugq.appframedemo.net;
+package com.lugq.appframedemo.net.interceptor;
 
 import com.lugq.appframedemo.BuildConfig;
 import com.lugq.appframedemo.utils.ReadAssetsUtils;

@@ -1,6 +1,7 @@
 package com.lugq.appframedemo.net;
 
 import com.lugq.appframedemo.constant.Constants;
+import com.lugq.appframedemo.net.interceptor.FakeApiInterceptor;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

@@ -1,0 +1,58 @@
+{
+  "解释": "预警详情",
+  "success": true,
+  "data": {
+    "warningInfo": {
+      "alarmId": 5359,
+      "bkType": 1,
+      "alarmType": 1,
+      "zdrId": 123,
+      "zdrIdcard": "123456123456123457",
+      "zoneId": 1,
+      "zoneAddress": "青海省西宁市青海省西宁市市辖区SGAT",
+      "title": "一类人员 测试1临近事件",
+      "alarmLevel": 3,
+      "occurTime": "2020-02-20 03:01:10.0",
+      "content": "一类人员 测试1(13995547723)在 2019-12-31 03:01:10,临近场所 青海SGAT",
+      "status": 1
+    },
+    "zdr": {
+      "tpId": 1,
+      "pcsCtrlPhone": "13995547772",
+      "riskAssessmentValue": "高",
+      "pcsCtrlName": "王XX",
+      "controlTime": "2020-01-07 19:52:11",
+      "majorCtrlHeaderName": "张XX",
+      "controlMeasure": "1",
+      "majorCtrlName": "pc05",
+      "controlLevel": "1",
+      "majorCtrlPhone": "",
+      "realReflect": "一般",
+      "relateField": "5,7",
+      "idNum": "123456123456123457",
+      "majorCtrlDeptName": "青海gb",
+      "majorCtrlId": "45",
+      "communityLeaderPhone": "139xx547773",
+      "controlReason": "原因不明",
+      "majorCtrlHeaderId": "632525xx11051511",
+      "tpName": "测试1",
+      "majorCtrlHeaderPhone": "139xx47777",
+      "uncontrolTime": "2020-01-16 14:54:18",
+      "communityLeaderName": "周XX",
+      "controlTypeValue": "类别11",
+      "uncontrolReason": "ck原因内容",
+      "relateFieldValue": "涉藏非法处境回流,涉军",
+      "controlType": "4",
+      "riskAssessment": "1",
+      "controlLevelValue": "一级",
+      "controlMeasureValue": "动态GK"
+    },
+    "personType": 1,
+    "zoneMap": {
+      "area": "101.55832685676911,36.477706936362274,101.59407073652497,36.49263731698907&101.56520539936862,36.49261654123533;101.59407122191651,36.48077331331835;101.58445455517871,36.477735236089806;101.57191086831696,36.4777253690111;101.55884272057295,36.48143288810064;101.55832630886921,36.49095090478957;101.56520539936862,36.49261654123533",
+      "kp_name": "塔尔寺",
+      "kp_code": "630000_CS_000000000156",
+      "kp_id": 1
+    }
+  }
+}

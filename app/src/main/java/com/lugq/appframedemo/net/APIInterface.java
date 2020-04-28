@@ -32,5 +32,9 @@ public interface APIInterface {
     @FormUrlEncoded
     Observable<ResultResponse<List<WarnintEntity>>> getWarningListByParams(@Field("username") String userName);
 
+    @POST("/pw/warning/getWarningDetailPageInfo")
+    @FormUrlEncoded
+    Observable<ResultResponse<List<WarnintEntity>>> getWarningDetailPageInfo(@Field("username") String userName);
+
 
 }
