@@ -5,13 +5,9 @@
     <!-- 网络-权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-
-    <!-- 读写-权限 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- 读写-权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <!-- 相机-权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 相机-权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -23,13 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--
-        1、设置软键盘不自动弹出
-        -->
         <activity
-            android:name=".ui.activity.LoginActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateHidden">
+            android:name=".ui.activity.SplashActivity"
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -38,10 +30,13 @@
             </intent-filter>
         </activity>
 
-        <!--
-        设置MainActivity启动模式为SingleTask保证每次
-        -->
+        <!--         1、设置软键盘不自动弹出 -->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
+        <!--         设置MainActivity启动模式为SingleTask保证每次 -->
         <activity
             android:name=".ui.activity.MainActivity"
             android:launchMode="singleTask"
