@@ -17,7 +17,7 @@ class LoginPresenter(view: LoginView?) : BasePresenter<LoginView?>(view) {
                 .subscribe(object : BaseObserver<UserEntity?>() {
                     override fun onNext(s: UserEntity) {
                         Log.i(TAG, "请求成功")
-                        mView!!.showUserInfo(s)
+                        mView?.showUserInfo(s)
                     }
                 })
     }
