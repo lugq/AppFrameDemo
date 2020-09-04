@@ -1,0 +1,33 @@
+{
+  "code": "0",
+  "msg": "success",
+  "data": {
+    "total_count": 20,
+    "students": [
+      {
+        "stu_id": 1,
+        "stu_name": "张一",
+        "user_name": "张一",
+        "relacation": "妈妈"
+      },
+      {
+        "stu_id": 1,
+        "stu_name": "张二",
+        "user_name": "张二",
+        "relacation": "妈妈"
+      },
+      {
+        "stu_id": 1,
+        "stu_name": "张三",
+        "user_name": "张三",
+        "relacation": "妈妈"
+      },
+      {
+        "stu_id": 1,
+        "stu_name": "张三",
+        "user_name": "张三",
+        "relacation": "妈妈"
+      }
+    ]
+  }
+}

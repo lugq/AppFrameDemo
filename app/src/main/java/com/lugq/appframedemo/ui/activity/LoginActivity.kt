@@ -3,8 +3,8 @@ package com.lugq.appframedemo.ui.activity
 import android.content.Intent
 import android.util.Log
 import com.lugq.appframedemo.R
+import com.lugq.appframedemo.entity.User
 import com.lugq.appframedemo.entity.UserEntity
-import com.lugq.appframedemo.entity.WarnintEntity
 import com.lugq.appframedemo.ui.base.BaseActivity
 import com.lugq.appframedemo.ui.presenter.LoginPresenter
 import com.lugq.appframedemo.ui.view.LoginView
@@ -32,7 +32,7 @@ class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
 
         // 更精简的网络请求示例
         btnTest.setOnClickListener {
-            mPresenter?.test2("", "")
+            mPresenter?.getUsers()
         }
     }
 
@@ -45,6 +45,8 @@ class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
 
     }
 
-    override fun showData(datas: List<WarnintEntity>) {
+    override fun showData(datas: List<User>) {
+        Log.i(TAG, "showData${datas.size}")
     }
+
 }

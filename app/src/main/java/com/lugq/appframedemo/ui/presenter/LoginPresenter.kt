@@ -5,11 +5,10 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import com.lugq.appframedemo.entity.ResultResponse
+import com.lugq.appframedemo.entity.User
 import com.lugq.appframedemo.entity.UserEntity
 import com.lugq.appframedemo.entity.WarnintEntity
-import com.lugq.appframedemo.net.ApiService
-import com.lugq.appframedemo.net.BaseObserver
-import com.lugq.appframedemo.net.CommonSchedulers
+import com.lugq.appframedemo.net.*
 import com.lugq.appframedemo.ui.base.BasePresenter
 import com.lugq.appframedemo.ui.presenter.LoginPresenter
 import com.lugq.appframedemo.ui.view.LoginView
@@ -18,6 +17,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginPresenter(view: LoginView?) : BasePresenter<LoginView?>(view) {
+    companion object {
+        private val TAG = LoginPresenter::class.java.simpleName
+    }
+
     val api = ApiService.createApiService()
 
     fun login(name: String?, pwd: String?) {
@@ -34,20 +37,28 @@ class LoginPresenter(view: LoginView?) : BasePresenter<LoginView?>(view) {
     /**
      * 这个写法很精简
      */
-    fun test2(name: String?, pwd: String?) {
+    fun getUsers() {
         val call = api.getGitHubInfo()
         call.enqueue(object : Callback<ResultResponse<JsonObject>> {
             override fun onFailure(call: Call<ResultResponse<JsonObject>>, t: Throwable) {
             }
 
             override fun onResponse(call: Call<ResultResponse<JsonObject>>, response: Response<ResultResponse<JsonObject>>) {
+                testInfo(response)
                 response.body()?.data?.let {
-                    val banners = Gson().fromJson<List<WarnintEntity>>(it.toString(), object : TypeToken<List<WarnintEntity>>() {}.type)
-                    mView?.showData(banners)
+                    response.body()?.data?.get(STUDENTS)?.toString()?.let {
+                        val news = Gson().fromJson<List<User>>(it, object : TypeToken<List<User>>() {}.type)
+                        mView?.showData(news)
+                    } ?: mView?.showData(listOf())
                 }
             }
-
         })
+    }
+
+    private fun testInfo(response: Response<ResultResponse<JsonObject>>) {
+        val jsonObject = response.body()?.data
+        val str = jsonObject?.get(STUDENTS).toString()
+        Log.i(TAG, str)
     }
 
     override fun onDestroy() {
@@ -55,7 +66,4 @@ class LoginPresenter(view: LoginView?) : BasePresenter<LoginView?>(view) {
         Log.i(TAG, "LoginActivity destroy")
     }
 
-    companion object {
-        private val TAG = LoginPresenter::class.java.simpleName
-    }
 }

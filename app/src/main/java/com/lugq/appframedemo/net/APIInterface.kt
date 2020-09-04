@@ -23,6 +23,8 @@ import retrofit2.http.POST
  * 例如：queryUsers（查询用户），queryUsersPost（查询用户）
  */
 const val data = "data"
+const val ATTACHED_USERS = "attached_users"
+const val STUDENTS = "students"
 
 interface APIInterface {
     @get:GET("/users/lugq")
