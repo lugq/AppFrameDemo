@@ -33,9 +33,9 @@ public class FakeApiInterceptor implements Interceptor {
         // 对特殊的地址进行假数据回传，用于接
         if (BuildConfig.DEBUG && chain.request().url().toString().contains("/pw/warning/getWarningListByParams")) {
             response = mockModifyName(chain, "mock/mock1.json");
-        }
-
-        else {
+        } else if (BuildConfig.DEBUG && chain.request().url().toString().contains("/users/lugq")) {
+            response = mockModifyName(chain, "mock/mock2.json");
+        } else {
             response = chain.proceed(chain.request());
         }
 

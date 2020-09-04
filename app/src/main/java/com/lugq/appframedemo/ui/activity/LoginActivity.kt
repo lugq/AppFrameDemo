@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import com.lugq.appframedemo.R
 import com.lugq.appframedemo.entity.UserEntity
+import com.lugq.appframedemo.entity.WarnintEntity
 import com.lugq.appframedemo.ui.base.BaseActivity
 import com.lugq.appframedemo.ui.presenter.LoginPresenter
 import com.lugq.appframedemo.ui.view.LoginView
@@ -28,6 +29,11 @@ class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
             mPresenter?.login(name, pwd)
             startActivity(Intent(this, MainActivity::class.java))
         }
+
+        // 更精简的网络请求示例
+        btnTest.setOnClickListener {
+            mPresenter?.test2("", "")
+        }
     }
 
     override fun onDestroy() {
@@ -37,5 +43,8 @@ class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
 
     override fun showUserInfo(user: UserEntity?) {
 
+    }
+
+    override fun showData(datas: List<WarnintEntity>) {
     }
 }

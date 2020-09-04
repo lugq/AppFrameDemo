@@ -1,6 +1,5 @@
 package com.lugq.appframedemo.net;
 
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 

@@ -1,5 +1,6 @@
 package com.lugq.appframedemo.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -22,12 +23,17 @@ class MainActivity : AppCompatActivity() {
         btnFake.setOnClickListener {
             login()
         }
+
+        btnLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 
     fun login() {
+        /*
         val observable = ApiService.createApiService().getWarningListByParams("hahaha")
-        observable.compose(CommonSchedulers.io2main())
-                .subscribe(object : BaseObserver<ResultResponse<List<WarnintEntity>>>() {
+        observable?.compose(CommonSchedulers.io2main())
+                ?.subscribe(object : BaseObserver<ResultResponse<List<WarnintEntity>>>() {
                     override fun onNext(t: ResultResponse<List<WarnintEntity>>) {
                         val datas = t.data
                         for (item in datas) {
@@ -35,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
 
-                })
+                })*/
     }
 
 }
