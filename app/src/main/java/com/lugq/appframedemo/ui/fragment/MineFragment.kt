@@ -36,13 +36,17 @@ class MineFragment : BaseFragment<MinePresenter>(), MineView {
         }
     }
 
-    override fun createPresenter(): MinePresenter {
+    /*override fun createPresenter(): MinePresenter {
         return MinePresenter(this)
-    }
-
-    override fun provideContentViewId(): Int {
+    }*/
+    /*override fun provideContentViewId(): Int {
         return R.layout.fragment_mine
-    }
+    }*/
+
+    // 更精简写法
+    override fun createPresenter() = MinePresenter(this)
+
+    override fun provideContentViewId() = R.layout.fragment_mine
 
     override fun initListener() {
         super.initListener()

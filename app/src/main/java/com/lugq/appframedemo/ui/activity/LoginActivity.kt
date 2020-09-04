@@ -11,21 +11,21 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
 
-    override fun createPresenter(): LoginPresenter {
-        return LoginPresenter(this)
+    companion object {
+        private val TAG = LoginActivity::class.java.simpleName
     }
 
-    override fun provideContentViewId(): Int {
-        return R.layout.activity_login
-    }
+    override fun createPresenter() = LoginPresenter(this)
+
+    override fun provideContentViewId() = R.layout.activity_login
 
     override fun initListener() {
         super.initListener()
         // 登录
         btn_login.setOnClickListener {
-            val name = et_name!!.text.toString()
-            val pwd = et_name!!.text.toString()
-            mPresenter!!.login(name, pwd)
+            val name = et_name?.text.toString()
+            val pwd = et_name?.text.toString()
+            mPresenter?.login(name, pwd)
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
@@ -35,10 +35,7 @@ class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
         Log.i(TAG, "onDestroy()")
     }
 
-    companion object {
-        private val TAG = LoginActivity::class.java.simpleName
-    }
-
     override fun showUserInfo(user: UserEntity?) {
+
     }
 }
