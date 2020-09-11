@@ -5,7 +5,7 @@ package com.lugq.appframedemo.entity
  * @Author Lu Guoqiang
  * @Time 2019/7/5 15:54
  */
-class ResultResponse<T>(val data: T,
+class ResultResponse<T>(val data: T?,
                         val code: String,
                         val msg: String)
 /*

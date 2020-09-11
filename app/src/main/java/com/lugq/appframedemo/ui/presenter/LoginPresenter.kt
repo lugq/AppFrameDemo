@@ -36,30 +36,69 @@ class LoginPresenter(view: LoginView?) : BasePresenter<LoginView?>(view) {
 
     /**
      * 这个写法很精简
+     *
+     * 有缺陷：当data对应的是null时候会抛出异常
      */
     fun getUsers() {
         val call = api.getGitHubInfo()
         call.enqueue(object : Callback<ResultResponse<JsonObject>> {
             override fun onFailure(call: Call<ResultResponse<JsonObject>>, t: Throwable) {
+                Log.i(TAG, "解析错误")
             }
 
             override fun onResponse(call: Call<ResultResponse<JsonObject>>, response: Response<ResultResponse<JsonObject>>) {
-                testInfo(response)
-                response.body()?.data?.let {
-                    response.body()?.data?.get(STUDENTS)?.toString()?.let {
-                        val news = Gson().fromJson<List<User>>(it, object : TypeToken<List<User>>() {}.type)
+                /*
+                response.body()?.data?.let { it0 ->
+                    it0.get(STUDENTS)?.toString()?.let { it1 ->
+                        val news = Gson().fromJson<List<User>>(it1, object : TypeToken<List<User>>() {}.type)
                         mView?.showData(news)
                     } ?: mView?.showData(listOf())
+                }*/
+
+                //  对应解析 mock4.json
+                /*
+                response.body()?.data?.let { it0 ->
+                    val code = it0["code"]
+                    val msg = it0["msg"]
+
+                    Log.i(TAG, "code:${code},msg:${msg}")
+                }*/
+
+                // 对应解析 mock5.json
+                /**
+                 * Expected a com.google.gson.JsonObject but was com.google.gson.JsonNull
+                 * 客户端在定义数据接口的时候避免直接使用 JsonObject 类型，一定要自己定义类型，问题即可解决
+                 */
+                response.body()?.code?.let {
+                    Log.i(TAG, "code:${it}")
                 }
             }
         })
     }
 
+    fun getUsers2() {
+        val call = api.getGitHubInfo2()
+        call.enqueue(object : Callback<ResultResponse<Any>> {
+            override fun onFailure(call: Call<ResultResponse<Any>>, t: Throwable) {
+                Log.i(TAG, "解析错误")
+            }
+
+            override fun onResponse(call: Call<ResultResponse<Any>>, response: Response<ResultResponse<Any>>) {
+                //  对应解析 mock4.json
+                response.body()?.let {
+                    Log.i(TAG, "code:${it.code} msg:${it.msg}")
+                }
+            }
+        })
+    }
+
+    /*
     private fun testInfo(response: Response<ResultResponse<JsonObject>>) {
         val jsonObject = response.body()?.data
         val str = jsonObject?.get(STUDENTS).toString()
         Log.i(TAG, str)
     }
+     */
 
     override fun onDestroy() {
         super.onDestroy()

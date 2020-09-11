@@ -23,6 +23,7 @@ import java.util.*
  * @date 2018/2/10
  */
 abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
+
     protected var mPresenter: T? = null
     var mPermissionListener: PermissionListener? = null
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,16 +33,22 @@ abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
         // 子类不再需要设置布局ID
         setContentView(provideContentViewId())
         currentActivity = this
-        initView()
+        initView(savedInstanceState)
         initData()
         initListener()
     }
 
-    fun initView() {}
-    fun initData() {}
+    open fun initView() {}
+
+    open fun initView(savedInstanceState: Bundle?) {
+        initView()
+    }
+
+    open fun initData() {}
     open fun initListener() {}
+
     // 用于创建Presenter和判断是否使用MVP模式(由子类实现)
-// 如果子类没有Presenter则返回null即可
+    // 如果子类没有Presenter则返回null即可
     protected abstract fun createPresenter(): T
 
     //得到当前界面的布局文件id(由子类实现)
@@ -63,7 +70,7 @@ abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
     override fun onBackPressed() {
         if (currentActivity is MainActivity) { //如果是主页面
             if (System.currentTimeMillis() - mPreTime > 2000) { // 两次点击间隔大于2秒
-//UIUtils.showToast("再按一次，退出应用");
+                //UIUtils.showToast("再按一次，退出应用");
                 mPreTime = System.currentTimeMillis()
                 return
             }
@@ -138,6 +145,7 @@ abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
 
     companion object {
         private var mPreTime: Long = 0
+
         // 当前的 activity
         var currentActivity: Activity? = null
             private set

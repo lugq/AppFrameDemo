@@ -41,4 +41,7 @@ interface APIInterface {
 
     @GET("/users/lugq")
     fun getGitHubInfo(): Call<ResultResponse<JsonObject>>
+
+    @GET("/users/lugq")
+    fun getGitHubInfo2(): Call<ResultResponse<Any>>
 }

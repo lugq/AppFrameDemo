@@ -16,7 +16,7 @@ class MineFragment : BaseFragment<MinePresenter>(), MineView {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
                 MineFragment().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)

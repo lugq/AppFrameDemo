@@ -34,7 +34,7 @@ public class FakeApiInterceptor implements Interceptor {
         if (BuildConfig.DEBUG && chain.request().url().toString().contains("/pw/warning/getWarningListByParams")) {
             response = mockModifyName(chain, "mock/mock1.json");
         } else if (BuildConfig.DEBUG && chain.request().url().toString().contains("/users/lugq")) {
-            response = mockModifyName(chain, "mock/mock3.json");
+            response = mockModifyName(chain, "mock/mock5.json");
         } else {
             response = chain.proceed(chain.request());
         }

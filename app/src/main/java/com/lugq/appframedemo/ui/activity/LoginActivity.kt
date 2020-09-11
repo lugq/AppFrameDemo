@@ -32,7 +32,7 @@ class LoginActivity : BaseActivity<LoginPresenter?>(), LoginView {
 
         // 更精简的网络请求示例
         btnTest.setOnClickListener {
-            mPresenter?.getUsers()
+            mPresenter?.getUsers2()
         }
     }
 
