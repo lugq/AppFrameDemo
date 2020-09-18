@@ -5,7 +5,7 @@ import android.content.Context
 class ContextHolder {
 
     companion object {
-        public lateinit var context: Context
+        lateinit var context: Context
 
         fun initial(context: Context) {
             this.context = context

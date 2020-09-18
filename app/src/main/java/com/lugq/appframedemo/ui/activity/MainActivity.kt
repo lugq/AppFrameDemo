@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.lugq.appframedemo.App
 import com.lugq.appframedemo.R
 import com.lugq.appframedemo.ui.base.BaseActivity
 import com.lugq.appframedemo.ui.fragment.HomeFragment
