@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.lugq.appframedemo.App
 import com.lugq.appframedemo.R
 import com.lugq.appframedemo.ui.base.BaseActivity
 import com.lugq.appframedemo.ui.fragment.HomeFragment
@@ -13,6 +12,7 @@ import com.lugq.appframedemo.ui.fragment.MineFragment
 import com.lugq.appframedemo.ui.fragment.NewsFragment
 import com.lugq.appframedemo.ui.presenter.MainPresenter
 import com.lugq.appframedemo.ui.view.MainView
+import kotlinx.android.synthetic.main.main_bottom_bar.*
 
 class MainActivity : BaseActivity<MainPresenter>(), MainView {
 
@@ -52,6 +52,8 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
             // 实际中这里可以根据需求进行修改
             switchFragment(mHomeFragment)
         }
+
+        initBottomTabView()
     }
 
 
@@ -136,11 +138,39 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     }
 
     fun onClick(view: View) {
+        resetStatus()
         when (view.id) {
-            R.id.btn_1 -> switchFragment(mHomeFragment)
-            R.id.btn_2 -> switchFragment(mNewsFragment)
-            R.id.btn_3 -> switchFragment(mMineFragment)
+            R.id.rlTabHome -> {
+                ivHome.isSelected = true
+                tvHome.isSelected = true
+                switchFragment(mHomeFragment)
+            }
+            R.id.rlTabWork -> {
+                switchFragment(mNewsFragment)
+                ivWork.isSelected = true
+                tvWork.isSelected = true
+            }
+            R.id.rlTabMine -> {
+                switchFragment(mMineFragment)
+                ivMine.isSelected = true
+                tvMine.isSelected = true
+            }
         }
+    }
+
+    private fun initBottomTabView() {
+        ivHome.isSelected = true
+        tvHome.isSelected = true
+    }
+
+    private fun resetStatus() {
+        ivWork.isSelected = false
+        ivHome.isSelected = false
+        ivMine.isSelected = false
+
+        tvWork.isSelected = false
+        tvHome.isSelected = false
+        tvMine.isSelected = false
     }
 
     /*btnFake.setOnClickListener {
@@ -151,19 +181,20 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
         startActivity(Intent(this, LoginActivity::class.java))
     }*/
 
-    fun login() {
-        /*
-        val observable = ApiService.createApiService().getWarningListByParams("hahaha")
-        observable?.compose(CommonSchedulers.io2main())
-                ?.subscribe(object : BaseObserver<ResultResponse<List<WarnintEntity>>>() {
-                    override fun onNext(t: ResultResponse<List<WarnintEntity>>) {
-                        val datas = t.data
-                        for (item in datas) {
-                            LogUtils.i("请求成功${item.content}")
-                        }
+    /*
+fun login() {
+    val observable = ApiService.createApiService().getWarningListByParams("hahaha")
+    observable?.compose(CommonSchedulers.io2main())
+            ?.subscribe(object : BaseObserver<ResultResponse<List<WarnintEntity>>>() {
+                override fun onNext(t: ResultResponse<List<WarnintEntity>>) {
+                    val datas = t.data
+                    for (item in datas) {
+                        LogUtils.i("请求成功${item.content}")
                     }
+                }
 
-                })*/
-    }
+            })
+}
+            */
 
 }

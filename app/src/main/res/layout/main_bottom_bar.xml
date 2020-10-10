@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="#fff"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/rlTabHome"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:onClick="onClick"
+        tools:background="@android:color/holo_blue_bright">
+
+        <ImageView
+            android:id="@+id/ivHome"
+            style="@style/WrapWrap"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/selector_act_bottombar_message" />
+
+        <TextView
+            android:id="@+id/tvHome"
+            style="@style/MainTabTextView"
+            android:layout_below="@id/ivHome"
+            android:text="首页"
+            android:textColor="@color/selector_act_bottombar_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlTabWork"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:onClick="onClick"
+        tools:background="@android:color/holo_blue_bright">
+
+        <ImageView
+            android:id="@+id/ivWork"
+            style="@style/WrapWrap"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/selector_act_bottombar_work" />
+
+        <TextView
+            android:id="@+id/tvWork"
+            style="@style/MainTabTextView"
+            android:layout_below="@id/ivWork"
+            android:text="工作台"
+            android:textColor="@color/selector_act_bottombar_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlTabMine"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:onClick="onClick"
+        tools:background="@android:color/holo_blue_bright">
+
+        <ImageView
+            android:id="@+id/ivMine"
+            style="@style/WrapWrap"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/selector_act_bottombar_mine" />
+
+        <TextView
+            android:id="@+id/tvMine"
+            style="@style/MainTabTextView"
+            android:layout_below="@id/ivMine"
+            android:text="我的"
+            android:textColor="@color/selector_act_bottombar_text" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -30,4 +30,10 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="MainTabTextView" parent="WrapWrap">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
 </resources>
