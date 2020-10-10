@@ -1,7 +1,6 @@
 package com.lugq.appframedemo.ui.fragment
 
 import android.os.Bundle
-import com.blankj.utilcode.util.ToastUtils
 import com.lugq.appframedemo.R
 import com.lugq.appframedemo.ui.base.BaseFragment
 import com.lugq.appframedemo.ui.presenter.MinePresenter
@@ -54,12 +53,6 @@ class MineFragment : BaseFragment<MinePresenter>(), MineView {
         super.initListener()
         mPresenter?.getUserProfile("000")
 
-        btnLogin.setOnClickListener {
-            mPresenter
-        }
 
-        clClear.setOnClickListener {
-            ToastUtils.showShort("clear")
-        }
     }
 }
