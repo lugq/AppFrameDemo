@@ -182,19 +182,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     }*/
 
     /*
-fun login() {
-    val observable = ApiService.createApiService().getWarningListByParams("hahaha")
-    observable?.compose(CommonSchedulers.io2main())
-            ?.subscribe(object : BaseObserver<ResultResponse<List<WarnintEntity>>>() {
-                override fun onNext(t: ResultResponse<List<WarnintEntity>>) {
-                    val datas = t.data
-                    for (item in datas) {
-                        LogUtils.i("请求成功${item.content}")
-                    }
-                }
 
-            })
-}
             */
 
 }
