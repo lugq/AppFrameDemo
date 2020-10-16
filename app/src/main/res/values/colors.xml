@@ -6,4 +6,6 @@
 
     <color name="acy_bottombar_text_nor">#a6a6a6</color>
     <color name="acy_bottombar_text_press">#2277ff</color>
+
+    <color name="tool_bar_title_color">#202020</color>
 </resources>
