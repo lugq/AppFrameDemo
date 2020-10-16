@@ -6,6 +6,10 @@
     android:background="#fff"
     android:orientation="horizontal">
 
+    <!--
+    android:stateListAnimator 按下动画
+    -->
+
     <RelativeLayout
         android:id="@+id/rlTabHome"
         android:layout_width="0dp"
@@ -20,7 +24,8 @@
             style="@style/WrapWrap"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/selector_act_bottombar_message" />
+            android:src="@drawable/selector_act_bottombar_message"
+            android:stateListAnimator="@animator/bottom_nav_click_animal_selector" />
 
         <TextView
             android:id="@+id/tvHome"
@@ -45,7 +50,8 @@
             style="@style/WrapWrap"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/selector_act_bottombar_work" />
+            android:src="@drawable/selector_act_bottombar_work"
+            android:stateListAnimator="@animator/bottom_nav_click_animal_selector" />
 
         <TextView
             android:id="@+id/tvWork"
@@ -70,7 +76,8 @@
             style="@style/WrapWrap"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/selector_act_bottombar_mine" />
+            android:src="@drawable/selector_act_bottombar_mine"
+            android:stateListAnimator="@animator/bottom_nav_click_animal_selector" />
 
         <TextView
             android:id="@+id/tvMine"
