@@ -17,15 +17,11 @@ import java.util.*
  * @Author Lu Guoqiang
  * @Time 2019/6/28 16:19
  */
-/**
- * @author lugq
- * @description: activity的基类
- * @date 2018/2/10
- */
 abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
 
     protected var mPresenter: T? = null
-    var mPermissionListener: PermissionListener? = null
+    private var mPermissionListener: PermissionListener? = null
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mPresenter = createPresenter()
@@ -79,19 +75,19 @@ abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
     }
 
     // 包含了EventBus,如果不需要，则去掉以下3个函数
-    fun isEventBusRegisted(subscribe: Any?): Boolean {
+    private fun isEventBusRegisted(subscribe: Any?): Boolean {
         return EventBus.getDefault().isRegistered(subscribe)
     }
 
     // EventBus
-    fun registerEventBus(subscribe: Any?) {
+    private fun registerEventBus(subscribe: Any?) {
         if (!isEventBusRegisted(subscribe)) {
             EventBus.getDefault().register(subscribe)
         }
     }
 
     // EventBus
-    fun unregisterEventBus(subscribe: Any?) {
+    private fun unregisterEventBus(subscribe: Any?) {
         if (isEventBusRegisted(subscribe)) {
             EventBus.getDefault().unregister(subscribe)
         }
@@ -108,7 +104,7 @@ abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
                 permissionList.add(permission)
             }
         }
-        if (!permissionList.isEmpty()) {
+        if (permissionList.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, permissionList.toTypedArray(), 1)
         } else {
             permissionListener.onGranted()
@@ -118,7 +114,7 @@ abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1) {
-            if (grantResults.size > 0) {
+            if (grantResults.isNotEmpty()) {
                 val deniedPermissions: MutableList<String> = ArrayList()
                 for (i in grantResults.indices) {
                     val grantResult = grantResults[i]
@@ -148,7 +144,5 @@ abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
 
         // 当前的 activity
         var currentActivity: Activity? = null
-            private set
-
     }
 }

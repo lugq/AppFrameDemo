@@ -38,4 +38,13 @@
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
+    <!--
+    styles.xml中命名规范
+    主题风格用：XXTheme    控件风格用：XXStyle
+
+    模块名字+业务名字+Style
+    -->
+    <style name="LoginTextStyle">
+
+    </style>
 </resources>
