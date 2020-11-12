@@ -4,11 +4,13 @@
     <!--
     角度
     -->
-    <corners android:radius="20dp" />
+    <corners android:radius="8dp" />
     <!--
     填充的颜色
     -->
     <solid android:color="#162CD1" />
+
+    <!--非必须-->
     <!--
     大小
     -->
@@ -19,6 +21,6 @@
     边框及颜色
     -->
     <stroke
-        android:width="5dp"
+        android:width="1dp"
         android:color="#87220D" />
 </shape>
