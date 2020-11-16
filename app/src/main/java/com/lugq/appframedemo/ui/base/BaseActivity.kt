@@ -16,6 +16,7 @@ import java.util.*
  * @Description
  * @Author Lu Guoqiang
  * @Time 2019/6/28 16:19
+ *
  */
 abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
 
@@ -45,7 +46,7 @@ abstract class BaseActivity<T : BasePresenter<*>?> : AppCompatActivity() {
 
     // 用于创建Presenter和判断是否使用MVP模式(由子类实现)
     // 如果子类没有Presenter则返回null即可
-    protected abstract fun createPresenter(): T
+    protected abstract fun createPresenter(): T?
 
     //得到当前界面的布局文件id(由子类实现)
     protected abstract fun provideContentViewId(): Int

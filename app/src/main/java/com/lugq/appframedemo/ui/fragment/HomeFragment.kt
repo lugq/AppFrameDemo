@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.lugq.appframedemo.R
+import com.lugq.appframedemo.ui.activity.HelpActivity
 import com.lugq.appframedemo.ui.activity.NewsDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -34,6 +35,10 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnDetail.setOnClickListener {
             startActivity(Intent(activity, NewsDetailActivity::class.java))
+        }
+
+        btnHelp.setOnClickListener {
+            startActivity(Intent(activity, HelpActivity::class.java))
         }
     }
 
