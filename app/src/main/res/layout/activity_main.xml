@@ -34,6 +34,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
+    <!--
+    如果嵌套的Fragment 中布局根布局是约束布局，
+    则这个容器布局指定为Fragment，如果要是Relavity布局，
+    fragment则会出现撑不满的问题
+    -->
     <FrameLayout
         android:id="@+id/fl_container"
         android:layout_width="match_parent"
