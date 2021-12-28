@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.lugq.appframedemo.R
 import kotlinx.android.synthetic.main.activity_splash.*
@@ -13,6 +14,11 @@ import kotlinx.android.synthetic.main.activity_splash.*
  */
 class SplashActivity : AppCompatActivity() {
 
+    companion object {
+        const val DELAY_MILLIS = 3000L
+    }
+    private lateinit var mHandler: Handler
+
     private lateinit var bgBitmap: Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +27,12 @@ class SplashActivity : AppCompatActivity() {
         bgBitmap = compressBackgroundImg()
         ivBg.setImageBitmap(bgBitmap)
 
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+        mHandler = Handler()
+
+        mHandler.postDelayed({
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            finish()
+        }, DELAY_MILLIS)
     }
 
     private fun compressBackgroundImg(): Bitmap {
